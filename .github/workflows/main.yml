@@ -12,4 +12,4 @@ jobs:
     - name: Print a message to console
       run: |
         echo "Hello, GitHub Actions!"
-        echo "This is another message"
+        echo "This is another message ${{secrets.SECRET_SURNAME}}"
