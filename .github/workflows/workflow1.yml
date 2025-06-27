@@ -1,0 +1,17 @@
+name: WorkFlow1
+
+on:
+  push:
+
+jobs:
+  Call_Workflow_2:   # <- This is your job ID
+    uses: ./.github/workflows/workflow2.yml
+
+  Prints_User_Info:
+    runs-on: ubuntu-latest
+    needs: Call_Workflow_2
+    steps:
+      - name: Print user info
+        run: |
+          echo "First Name: ${{ needs.Call_Workflow_2.outputs.FirstName }}"
+          echo "Last Name: ${{ needs.Call_Workflow_2.outputs.LastName }}"
