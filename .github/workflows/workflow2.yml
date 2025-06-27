@@ -1,0 +1,26 @@
+name: Workflow2
+
+on:
+  workflow_call:
+    outputs:
+      FirstName:
+        description: first name of the user
+        value: ${{jobs.job1.outputs.FirstName}}
+      LastName:
+        description: surname of the user
+        value: ${{jobs.job1.outputs.LastName}}
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs: 
+      FirstName: ${{steps.step1.outputs.FirstName}}
+      LastName:  ${{steps.step1.outputs.LastName}}
+    steps :
+      - name: step1
+        run: |
+          echo "FirstName=Sabyasachi" >> $GITHUB_OUTPUT
+          echo "LastName=Banerjee" >> $GITHUB_OUTPUT
+      
+      
+      
+      
