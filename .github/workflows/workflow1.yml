@@ -1,7 +1,13 @@
 name: WorkFlow1
 
 on:
-  push:
+  workflow_dispatch:
+    inputs: 
+      env:
+       description: 'Add a pre-release suffix to the package version and to the tag, please include the "-" in front of the suffix'
+       required: false
+       type: string
+       default: ''
 
 jobs:
   Call_Workflow_2:   # <- This is your job ID
