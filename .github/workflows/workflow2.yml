@@ -17,6 +17,7 @@ jobs:
       LastName:  ${{steps.step1.outputs.LastName}}
     steps :
       - name: step1
+        id: step1
         run: |
           echo "FirstName=Sabyasachi" >> $GITHUB_OUTPUT
           echo "LastName=Banerjee" >> $GITHUB_OUTPUT
